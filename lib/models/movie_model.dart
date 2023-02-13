@@ -1,5 +1,3 @@
-import 'dart:html';
-
 class Movie {
   final String name;
   final String imagePath;
@@ -19,72 +17,96 @@ class Movie {
   static const List<Movie> movies = [
     Movie(
       name: 'Free Guy',
-      imagePath:
-          'https://hbomax-images.warnermediacdn.com/images/GYdYmPQZFO7eZGAEAAAAT/tile?size=1280x720&format=jpeg&partner=hbocom&v=d8f493641653b85904f84954b1e9d5d8&host=art-gallery.api.hbo.com&w=1200',
-      videoPath: 'assets/videos/example.mov',
+      imagePath: 'assets/freeguy.jfif',
+      videoPath: 'https://youtu.be/X2m-08cOAbc',
+      category: 'Thriller',
+      year: 2022,
+      duration: Duration(hours: 1, minutes: 58),
+    ),
+    Movie(
+      name: 'The Kings Man',
+      imagePath: 'assets/kingsman.jpg',
+      videoPath: 'assets/videos/kingsman.mp4',
+      category: 'Thriller',
+      year: 2022,
+      duration: Duration(hours: 1, minutes: 58),
+    ),
+    Movie(
+      name: 'Jojo Rabbit',
+      imagePath: 'assets/jojo.jpg',
+      videoPath: 'assets/videos/jojoRabbit.mp4',
       category: 'Thriller',
       year: 2022,
       duration: Duration(hours: 1, minutes: 58),
     ),
     Movie(
       name: 'Free Guy',
-      imagePath:
-          'https://hbomax-images.warnermediacdn.com/images/GYdYmPQZFO7eZGAEAAAAT/tile?size=1280x720&format=jpeg&partner=hbocom&v=d8f493641653b85904f84954b1e9d5d8&host=art-gallery.api.hbo.com&w=1200',
-      videoPath: 'assets/videos/example.mov',
+      imagePath: 'assets/freeguy.jfif',
+      videoPath: 'assets/videos/freeguytrailer.mp4',
       category: 'Thriller',
       year: 2022,
       duration: Duration(hours: 1, minutes: 58),
     ),
     Movie(
-      name: 'Free Guy',
-      imagePath:
-          'https://hbomax-images.warnermediacdn.com/images/GYdYmPQZFO7eZGAEAAAAT/tile?size=1280x720&format=jpeg&partner=hbocom&v=d8f493641653b85904f84954b1e9d5d8&host=art-gallery.api.hbo.com&w=1200',
-      videoPath: 'assets/videos/example.mov',
+      name: 'The Kings Man',
+      imagePath: 'assets/kingsman.jpg',
+      videoPath: 'assets/videos/kingsman.mp4',
       category: 'Thriller',
       year: 2022,
       duration: Duration(hours: 1, minutes: 58),
     ),
     Movie(
+      name: 'Jojo Rabbit',
+      imagePath: 'assets/jojo.jpg',
+      videoPath: 'assets/videos/jojoRabbit.mp4',
+      category: 'Thriller',
+      year: 2022,
+      duration: Duration(hours: 1, minutes: 58),
+    ),
+     Movie(
       name: 'Free Guy',
-      imagePath:
-          'https://hbomax-images.warnermediacdn.com/images/GYdYmPQZFO7eZGAEAAAAT/tile?size=1280x720&format=jpeg&partner=hbocom&v=d8f493641653b85904f84954b1e9d5d8&host=art-gallery.api.hbo.com&w=1200',
-      videoPath: 'assets/videos/example.mov',
+      imagePath: 'assets/freeguy.jfif',
+      videoPath: 'assets/videos/freeguytrailer.mp4',
       category: 'Thriller',
       year: 2022,
       duration: Duration(hours: 1, minutes: 58),
     ),
     Movie(
-      name: 'Free Guy',
-      imagePath:
-          'https://hbomax-images.warnermediacdn.com/images/GYdYmPQZFO7eZGAEAAAAT/tile?size=1280x720&format=jpeg&partner=hbocom&v=d8f493641653b85904f84954b1e9d5d8&host=art-gallery.api.hbo.com&w=1200',
-      videoPath: 'assets/videos/example.mov',
+      name: 'The Kings Man',
+      imagePath: 'assets/kingsman.jpg',
+      videoPath: 'assets/videos/kingsman.mp4',
       category: 'Thriller',
       year: 2022,
       duration: Duration(hours: 1, minutes: 58),
     ),
     Movie(
+      name: 'Jojo Rabbit',
+      imagePath: 'assets/jojo.jpg',
+      videoPath: 'assets/videos/jojoRabbit.mp4',
+      category: 'Thriller',
+      year: 2022,
+      duration: Duration(hours: 1, minutes: 58),
+    ),
+     Movie(
       name: 'Free Guy',
-      imagePath:
-          'https://hbomax-images.warnermediacdn.com/images/GYdYmPQZFO7eZGAEAAAAT/tile?size=1280x720&format=jpeg&partner=hbocom&v=d8f493641653b85904f84954b1e9d5d8&host=art-gallery.api.hbo.com&w=1200',
-      videoPath: 'assets/videos/example.mov',
+      imagePath: 'assets/freeguy.jfif',
+      videoPath: 'assets/videos/freeguytrailer.mp4',
       category: 'Thriller',
       year: 2022,
       duration: Duration(hours: 1, minutes: 58),
     ),
     Movie(
-      name: 'Free Guy',
-      imagePath:
-          'https://hbomax-images.warnermediacdn.com/images/GYdYmPQZFO7eZGAEAAAAT/tile?size=1280x720&format=jpeg&partner=hbocom&v=d8f493641653b85904f84954b1e9d5d8&host=art-gallery.api.hbo.com&w=1200',
-      videoPath: 'assets/videos/example.mov',
+      name: 'The Kings Man',
+      imagePath: 'assets/kingsman.jpg',
+      videoPath: 'assets/videos/kingsman.mp4',
       category: 'Thriller',
       year: 2022,
       duration: Duration(hours: 1, minutes: 58),
     ),
     Movie(
-      name: 'Free Guy',
-      imagePath:
-          'https://hbomax-images.warnermediacdn.com/images/GYdYmPQZFO7eZGAEAAAAT/tile?size=1280x720&format=jpeg&partner=hbocom&v=d8f493641653b85904f84954b1e9d5d8&host=art-gallery.api.hbo.com&w=1200',
-      videoPath: 'assets/videos/example.mov',
+      name: 'Jojo Rabbit',
+      imagePath: 'assets/jojo.jpg',
+      videoPath: 'assets/videos/jojoRabbit.mp4',
       category: 'Thriller',
       year: 2022,
       duration: Duration(hours: 1, minutes: 58),

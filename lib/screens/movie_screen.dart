@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/movie_model.dart';
+import 'package:video_player/video_player.dart';
+import 'package:chewie/chewie.dart';
 
 class MovieScreen extends StatelessWidget {
   final Movie movie;
@@ -12,44 +14,6 @@ class MovieScreen extends StatelessWidget {
         children: [
           ..._buildBackground(context, movie),
           _buildMovieInformation(context),
-          Positioned(
-            bottom: 50,
-            width: MediaQuery.of(context).size.width,
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Row(
-                children: [
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.all(15.0),
-                        primary: const Color.fromARGB(255, 140, 216, 243),
-                        fixedSize:
-                            Size(MediaQuery.of(context).size.width * 0.425, 50),
-                      ),
-                      onPressed: () {},
-                      child: RichText(
-                        text: TextSpan(
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyLarge!
-                                .copyWith(color: Colors.grey),
-                            children: [
-                              TextSpan(
-                                text: 'Get Ticket',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge!
-                                    .copyWith(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                              )
-                            ]),
-                      )),
-                ],
-              ),
-            ),
-          )
         ],
       ),
     );
@@ -57,7 +21,7 @@ class MovieScreen extends StatelessWidget {
 
   Positioned _buildMovieInformation(BuildContext context) {
     return Positioned(
-      top: 250,
+      top: 150,
       width: MediaQuery.of(context).size.width,
       child: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -76,7 +40,74 @@ class MovieScreen extends StatelessWidget {
               '${movie.year} |${movie.category} | ${movie.duration.inHours}h  ${movie.duration.inMinutes.remainder(60)}m',
               style: const TextStyle(
                 color: Colors.white,
-                fontSize: 14,
+                fontSize: 20,
+              ),
+            ),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.all(15.0),
+                primary: const Color.fromARGB(255, 140, 216, 243),
+                fixedSize: Size(MediaQuery.of(context).size.width * 0.425, 50),
+              ),
+              onPressed: () {},
+              child: RichText(
+                text: TextSpan(
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyLarge!
+                        .copyWith(color: Colors.grey),
+                    children: [
+                      TextSpan(
+                        text: 'Get Ticket',
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                      )
+                    ]),
+              ),
+            ),
+            const SizedBox(height: 5),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.all(5.0),
+                primary: Color.fromARGB(255, 44, 55, 59),
+                fixedSize: Size(
+                  MediaQuery.of(context).size.width * 0.425,
+                  50,
+                ),
+              ),
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => _MoviePlayer(movie: movie),
+                  ),
+                );
+              },
+              child: RichText(
+                text: TextSpan(
+                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                          color: Colors.grey,
+                        ),
+                    children: [
+                      TextSpan(
+                        text: 'Watch Trailer',
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                      )
+                    ]),
+              ),
+            ),
+            const SizedBox(height: 100),
+            Text(
+              'Overview',
+              style: const TextStyle(
+                color: Color.fromARGB(255, 9, 7, 7),
+                fontSize: 22,
               ),
             ),
             const SizedBox(height: 10),
@@ -122,5 +153,56 @@ class MovieScreen extends StatelessWidget {
         ),
       ),
     ];
+  }
+}
+
+class _MoviePlayer extends StatefulWidget {
+  const _MoviePlayer({
+    Key? key,
+    required this.movie,
+  }) : super(key: key);
+
+  final Movie movie;
+
+  @override
+  State<_MoviePlayer> createState() => _MoviePlayerState();
+}
+
+class _MoviePlayerState extends State<_MoviePlayer> {
+  late VideoPlayerController videoPlayerController;
+  late ChewieController chewieController;
+
+  @override
+  void initState() {
+    super.initState();
+
+    videoPlayerController = VideoPlayerController.asset(widget.movie.videoPath)
+      ..initialize().then((value) {
+        setState(() {});
+      });
+
+    chewieController = ChewieController(
+      videoPlayerController: videoPlayerController,
+      aspectRatio: 16 / 9,
+    );
+  }
+
+  @override
+  void dispose() {
+    videoPlayerController.dispose();
+    chewieController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: SafeArea(
+        child: Chewie(
+          controller: chewieController,
+        ),
+      ),
+    );
   }
 }

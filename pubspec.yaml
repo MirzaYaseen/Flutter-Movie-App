@@ -38,6 +38,8 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   chewie: ^1.4.0
   video_player: ^2.5.1
+  google_nav_bar: ^5.0.6
+  youtube_player_flutter: ^8.1.2
   
 dev_dependencies:
   flutter_test:
@@ -63,9 +65,13 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  assets:
-     - assets/videos/
-  #   - images/a_dot_ham.jpeg
+assets:
+     - assets/freeguy.jfif
+     - assets/kingsman.jpg
+     - assets/jojo.jpg
+     - assets/videos/freeguytrailer.mp4
+     - assets/videos/kingsman.mp4
+     - assets/videos/jojoRabbit.mp4
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
